@@ -232,6 +232,65 @@ dl > div + div { margin-top: .5rem; }
   .product-gallery { gap: 14px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 }
 
+/* ==== Galleria prodotti compatta ==== */
+.product-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.pg-card {
+  display: grid;
+  grid-template-rows: auto min-content;
+  gap: 6px;
+  padding: 8px;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 10px;
+  background: #fff;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.02);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+
+.pg-card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0,0,0,.12);
+  box-shadow: 0 4px 10px rgba(0,0,0,.06);
+}
+
+.pg-thumb {
+  position: relative;               /* richiesto da <Image fill /> */
+  width: 100%;
+  aspect-ratio: 4/3;                /* tile compatto e coerente */
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f6f6f6;
+  display: grid;
+  place-items: center;
+}
+
+/* Next/Image usa <img> interno posizionato, manteniamo il cover */
+.pg-thumb img { object-fit: cover; }
+
+.pg-placeholder {
+  color: #9a9a9a;
+  font-size: .9rem;
+  text-align: center;
+  padding: .5rem;
+}
+
+.pg-name {
+  font-size: .9rem;
+  line-height: 1.1;
+  font-weight: 600;
+  color: #222;
+  text-align: center;
+  margin-top: 2px;
+}
+
+@media (min-width: 1280px) {
+  .product-gallery { gap: 14px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+}
 
 
 

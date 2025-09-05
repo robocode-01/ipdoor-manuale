@@ -1,0 +1,248 @@
+diff --git a/.eslintrc.json b/.eslintrc.json
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/.eslintrc.json
+@@ -0,0 +1,15 @@
++{
++  "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
++  "parserOptions": {
++    "project": ["./tsconfig.json"]
++  },
++  "rules": {
++    "@typescript-eslint/no-explicit-any": "off",
++    "@next/next/no-img-element": "off"
++  }
++}
+diff --git a/src/components/docs/Breadcrumbs.tsx b/src/components/docs/Breadcrumbs.tsx
+index 0000000..2222222 100644
+--- a/src/components/docs/Breadcrumbs.tsx
++++ b/src/components/docs/Breadcrumbs.tsx
+@@ -1,200 +1,200 @@
++import Link from "next/link";
++import { useRouter } from "next/router";
++import hwData from "@/data/hardware.json";
++
++/** Tipo “elastico” per i prodotti nelle liste */
++type Prod = {
++  id?: string;          // slug preferito
++  slug?: string;
++  name?: string;
++  href?: string;
++  image?: string;
++};
++
++/** Appiattisce i sotto-array (doorStations, indoorStations, ecc.) in un unico array */
++function flattenProducts(data: unknown): Prod[] {
++  if (!data || typeof data !== "object") return [];
++  const values = Object.values(data as Record<string, unknown>);
++  const arrays = values.filter((v): v is Prod[] => Array.isArray(v));
++  return arrays.flat();
++}
++
++/** Ricava uno slug da href se id/slug non sono presenti */
++function slugFrom(item: Prod): string | undefined {
++  if (item?.id) return item.id;
++  if (item?.slug) return item.slug;
++  if (item?.href) {
++    const cleaned = item.href.split("?")[0].split("#")[0];
++    const parts = cleaned.split("/").filter(Boolean);
++    return parts[parts.length - 1];
++  }
++  return undefined;
++}
++
++/** Label “umane” per i segmenti noti */
++function labelFor(seg: string): string {
++  switch (seg) {
++    case "docs": return "Documentazione";
++    case "hardware": return "Hardware";
++    case "door-stations": return "Dispositivi esterni";
++    case "indoor-stations": return "Dispositivi interni";
++    case "controller-reader": return "Controller & Reader";
++    case "software": return "Software";
++    case "installazione": return "Installazione";
++    case "scheda-tecnica": return "Scheda tecnica";
++    default:
++      return seg.replace(/-/g, " ").replace(/\b\w/g, m => m.toUpperCase());
++  }
++}
++
++export default function Breadcrumbs() {
++  const { asPath, locale } = useRouter();
++  const path = asPath.split("?")[0].split("#")[0];
++  const parts = path.split("/").filter(Boolean);
++
++  // Rimuovo prefisso locale se presente
++  const isI18nPrefixed = locale ? parts[0] === locale : false;
++  const segs = isI18nPrefixed ? parts.slice(1) : parts;
++  const localePrefix = locale ? [locale] : [];
++
++  // Lista prodotti per lookup
++  const products = flattenProducts(hwData).map(p => ({ ...p, _slug: slugFrom(p) }));
++
++  const last = segs[segs.length - 1];
++  const categoryKeys = new Set(["docs", "hardware", "door-stations", "indoor-stations", "controller-reader", "software"]);
++  const maybeProductSlug = last && !categoryKeys.has(last) ? last : undefined;
++  const product = maybeProductSlug ? products.find(p => p._slug === maybeProductSlug) : undefined;
++
++  const crumbs = segs.map((seg, i) => {
++    const href = "/" + [...localePrefix, ...segs.slice(0, i + 1)].join("/");
++    const isLast = i === segs.length - 1;
++    const label = isLast && product?.name ? product.name : labelFor(seg);
++    return { href, label, isLast };
++  });
++
++  const root = { href: "/" + [...localePrefix, "docs"].join("/"), label: "Documentazione", isLast: crumbs.length === 0 };
++  const items = segs[0] === "docs" ? crumbs : [root, ...crumbs];
++
++  return (
++    <nav className="breadcrumb" aria-label="breadcrumbs" style={{ marginBottom: "0.75rem" }}>
++      <ul>
++        {items.map((c) => (
++          <li key={c.href} className={c.isLast ? "is-active" : undefined} aria-current={c.isLast ? "page" : undefined}>
++            {c.isLast ? (
++              <span>{c.label}</span>
++            ) : (
++              <Link href={c.href} locale={locale}>{c.label}</Link>
++            )}
++          </li>
++        ))}
++      </ul>
++    </nav>
++  );
++}
+diff --git a/src/components/docs/ProductGallery.tsx b/src/components/docs/ProductGallery.tsx
+index 0000000..3333333 100644
+--- a/src/components/docs/ProductGallery.tsx
++++ b/src/components/docs/ProductGallery.tsx
+@@ -1,200 +1,56 @@
+-// Galleria di prodotti compatta: immagine + nome, tutta cliccabile
+-type Item = {
+-  name: string;
+-  href: string;     // link alla scheda prodotto
+-  image?: string;   // es: "/media/spark-300/hero.png"
+-};
+-
+-export default function ProductGallery({ items }: { items: Item[] }) {
+-  return (
+-    <div className="product-gallery">
+-      {items.map((it) => (
+-        <a key={it.href} href={it.href} className="pg-card" aria-label={it.name}>
+-          <div className="pg-thumb" role="img" aria-label={it.name}>
+-            {it.image ? (
+-              // eslint-disable-next-line @next/next/no-img-element
+-              <img src={it.image} alt={it.name} />
+-            ) : (
+-              <div className="pg-placeholder">{it.name}</div>
+-            )}
+-          </div>
+-          <div className="pg-name">{it.name}</div>
+-        </a>
+-      ))}
+-    </div>
+-  );
+-}
++// Galleria compatta: immagine ottimizzata + nome, card cliccabile
++import Image from "next/image";
++
++type Item = {
++  name: string;
++  href: string;      // link alla scheda prodotto
++  image?: string;    // es: "/media/spark-300/hero.png"
++};
++
++export default function ProductGallery({ items }: { items: Item[] }) {
++  return (
++    <div className="product-gallery">
++      {items.map((it) => (
++        <a key={it.href} href={it.href} className="pg-card" aria-label={it.name}>
++          <div className="pg-thumb" aria-label={it.name}>
++            {it.image ? (
++              <Image
++                src={it.image}
++                alt={it.name}
++                fill
++                sizes="(max-width: 768px) 40vw, (max-width: 1200px) 20vw, 15vw"
++                priority={false}
++              />
++            ) : (
++              <div className="pg-placeholder">{it.name}</div>
++            )}
++          </div>
++          <div className="pg-name">{it.name}</div>
++        </a>
++      ))}
++    </div>
++  );
++}
+diff --git a/src/styles/docs.scss b/src/styles/docs.scss
+index 0000000..4444444 100644
+--- a/src/styles/docs.scss
++++ b/src/styles/docs.scss
+@@ -1,20 +1,24 @@
+ /* ==== Galleria prodotti compatta ==== */
+ .product-gallery {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+   gap: 12px;
+ }
+ 
+ .pg-card {
+   display: grid;
+   grid-template-rows: auto min-content;
+   gap: 6px;
+   padding: 8px;
+   border: 1px solid rgba(0,0,0,.06);
+   border-radius: 10px;
+   background: #fff;
+   text-decoration: none;
+   box-shadow: 0 1px 2px rgba(0,0,0,.02);
+   transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+ }
+ 
+ .pg-card:hover {
+   transform: translateY(-1px);
+   border-color: rgba(0,0,0,.12);
+   box-shadow: 0 4px 10px rgba(0,0,0,.06);
+ }
+ 
+ .pg-thumb {
+-  position: relative;
++  position: relative;               /* richiesto da <Image fill /> */
+   width: 100%;
+   aspect-ratio: 4/3;              /* tile compatto e coerente */
+   border-radius: 8px;
+   overflow: hidden;
+   background: #f6f6f6;
+   display: grid;
+   place-items: center;
+ }
+ 
+-.pg-thumb img {
+-  width: 100%;
+-  height: 100%;
+-  object-fit: cover;               /* riempie senza deformare troppo */
+-}
++/* Next/Image usa <img> interno posizionato, manteniamo il cover */
++.pg-thumb img { object-fit: cover; }
+ 
+ .pg-placeholder {
+   color: #9a9a9a;
+   font-size: .9rem;
+   text-align: center;
+   padding: .5rem;
+ }
+ 
+ .pg-name {
+   font-size: .9rem;
+   line-height: 1.1;
+   font-weight: 600;
+   color: #222;
+   text-align: center;
+   margin-top: 2px;
+ }
+ 
+ @media (min-width: 1280px) {
+   .product-gallery { gap: 14px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+ }
