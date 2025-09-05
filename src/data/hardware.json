@@ -4,49 +4,49 @@
       "id": "spark-300",
       "name": "SPARK 300",
       "href": "/docs/hardware/door-stations/spark-300",
-      "image": "/media/spark-300/hero.png"
+      "image": "/media/door-stations/spark-300/hero.png"
     },
     {
       "id": "spark-310",
       "name": "SPARK 310",
       "href": "/docs/hardware/door-stations/spark-310",
-      "image": "/media/spark-310/hero.png"
+      "image": "/media/door-stations/spark-310/hero.png"
     },
     {
       "id": "vertex-1000",
       "name": "VERTEX 1000",
       "href": "/docs/hardware/door-stations/vertex-1000",
-      "image": "/media/vertex-1000/hero.png"
+      "image": "/media/door-stations/vertex-1000/hero.png"
     },
     {
       "id": "vertex-1110",
       "name": "VERTEX 1110",
       "href": "/docs/hardware/door-stations/vertex-1110",
-      "image": "/media/vertex-1110/hero.png"
+      "image": "/media/door-stations/vertex-1110/hero.png"
     },
     {
       "id": "vertex-1116",
       "name": "VERTEX 1116",
       "href": "/docs/hardware/door-stations/vertex-1116",
-      "image": "/media/vertex-1116/hero.png"
+      "image": "/media/door-stations/vertex-1116/hero.png"
     },
     {
       "id": "vertex-2000",
       "name": "VERTEX 2000",
       "href": "/docs/hardware/door-stations/vertex-2000",
-      "image": "/media/vertex-2000/hero.png"
+      "image": "/media/door-stations/vertex-2000/hero.png"
     },
     {
       "id": "vertex-2110",
       "name": "VERTEX 2110",
       "href": "/docs/hardware/door-stations/vertex-2110",
-      "image": "/media/vertex-2110/hero.png"
+      "image": "/media/door-stations/vertex-2110/hero.png"
     },
     {
       "id": "vertex-2116",
       "name": "VERTEX 2116",
       "href": "/docs/hardware/door-stations/vertex-2116",
-      "image": "/media/vertex-2116/hero.png"
+      "image": "/media/door-stations/vertex-2116/hero.png"
     }
   ],
   "indoorStations": [
@@ -54,25 +54,55 @@
       "id": "pleats",
       "name": "PLEATS",
       "href": "/docs/hardware/indoor-stations/pleats",
-      "image": "/media/pleats/hero.png"
+      "image": "/media/indoor-stations/pleats/hero.png"
     },
     {
       "id": "match",
       "name": "MATCH",
       "href": "/docs/hardware/indoor-stations/match",
-      "image": "/media/match/hero.png"
+      "image": "/media/indoor-stations/match/hero.png"
     },
     {
       "id": "aura",
       "name": "AURA",
       "href": "/docs/hardware/indoor-stations/aura",
-      "image": "/media/aura/hero.png"
+      "image": "/media/indoor-stations/aura/hero.png"
     },
     {
       "id": "next",
       "name": "NEXT",
       "href": "/docs/hardware/indoor-stations/next",
-      "image": "/media/next/hero.png"
+      "image": "/media/next/indoor-stations/hero.png"
+    }
+  ]
+{
+  "controllerReader": [
+    {
+      "id": "ACACRDQRC481",
+      "name": "ACACRDQRC481",
+      "href": "/docs/hardware/controller-reader/ACACRDQRC481",
+      "image": "/media/controller-reader/ACACRDQRC481/hero.png"
+    },
+    {
+      "id": "ACACRDTASWG1",
+      "name": "ACACRDTASWG1",
+      "href": "/docs/hardware/controller-reader/ACACRDTASWG1",
+      "image": "/media/controller-reader/ACACRDTASWG1/hero.png"
+    },
+    {
+      "id": "C53ACW1004W1",
+      "name": "C53ACW1004W1",
+      "href": "/docs/hardware/controller-reader/C53ACW1004W1",
+      "image": "/media/controller-reader/C53ACW1004W1/hero.png"
+    },
+    {
+      "id": "C53POC1004W1",
+      "name": "C53POC1004W1",
+      "href": "/docs/hardware/controller-reader/C53POC1004W1",
+      "image": "/media/controller-reader/C53POC1004W1/hero.png"
     }
   ]
 }
+
+
+
