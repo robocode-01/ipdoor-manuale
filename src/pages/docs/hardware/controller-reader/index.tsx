@@ -1,23 +1,39 @@
 import type { GetStaticProps } from "next";
-import { i18nProps } from "@/lib/i18n";
-
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-  props: await i18nProps(locale)
-});
-
-
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import DocsLayout from "@/components/docs/DocsLayout";
+import ProductGallery from "@/components/docs/ProductGallery";
 import data from "@/data/hardware.json";
-import CardGrid from "@/components/docs/CardGrid";
 
-export default function ControllerReaderIndex(){
-  const items = (data as any[]).filter(d=>d.category==="controller-reader").map(p=>({
-    id: p.id, name: p.name, image: p.image, href: `/docs/hardware/controller-reader/${p.id}`
+type RawItem = { id: string; name: string; image?: string };
+type GalleryItem = { name: string; href: string; image?: string };
+
+export default function ControllerReaderIndex() {
+  // Leggo in modo sicuro la lista "controllerReader" se esiste, altrimenti array vuoto
+  const list: RawItem[] = Array.isArray((data as any)?.controllerReader)
+    ? ((data as any).controllerReader as RawItem[])
+    : [];
+
+  const items: GalleryItem[] = list.map((p) => ({
+    name: p.name,
+    image: p.image,
+    href: `/docs/hardware/controller-reader/${p.id}`,
   }));
+
   return (
     <DocsLayout title="Controller & Reader">
-      <h1 className="title">Controller & Reader</h1>
-      <CardGrid items={items} />
+      {items.length > 0 ? (
+        <ProductGallery items={items} />
+      ) : (
+        <div className="box has-text-grey" style={{ textAlign: "center" }}>
+          <p style={{ margin: 0 }}>Nessun prodotto disponibile in questa categoria.</p>
+        </div>
+      )}
     </DocsLayout>
   );
 }
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? "it", ["common"])),
+  },
+});
