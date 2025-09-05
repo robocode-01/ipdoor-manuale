@@ -1,0 +1,8 @@
+@use "./brand/_variables.scss" as brand;
+.docsLayout { background: brand.$background-light; min-height:100vh; display:flex; }
+.sidebar { border-right:1px solid brand.$gray-200; padding:1rem; background:brand.$gray-50; }
+.sidebarHeader{ margin-bottom:1rem; }
+.brand{ font-weight:700; text-decoration:none; color:brand.$ink; &:hover{ color:brand.$color-primary; } }
+.content{ padding:2rem 1rem; color:brand.$ink; }
+.calloutInfo{ border-left:4px solid brand.$color-primary; background:rgba(13,90,229,.06); padding:1rem; border-radius:6px; margin:1rem 0; }
+.calloutWarn{ border-left:4px solid #efaa00; background:rgba(239,170,0,.12); padding:1rem; border-radius:6px; margin:1rem 0; }

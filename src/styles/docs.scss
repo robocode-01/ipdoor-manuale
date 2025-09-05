@@ -1,0 +1,237 @@
+// Docs overrides
+.menu { .menu-label{ margin-top:.5rem; font-weight:600; } .menu-list li.is-active > a{ font-weight:600; } }
+.container, .content { line-height:1.6; }
+.box, .message { border-radius: 8px; }
+
+/* Sidebar: dettagli categorie / UX */
+/* Titoli sezione (MAIUSCOLO) */
+.menu .menu-label.section {
+  text-transform: uppercase;
+  letter-spacing: .02em;
+}
+
+/* Sottosezioni (categorie hardware) in stile normale */
+.menu .menu-category {
+  /* nessun text-transform: lascia la lingua com'è */
+  font-weight: 600;
+  margin: .25rem 0;
+}
+
+/* <details>/<summary> UX */
+.menu .menu-list details > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  user-select: none;
+}
+.menu .menu-list details > summary::-webkit-details-marker { display: none; }
+.menu .menu-list details > summary::before {
+  content: "▸";
+  transform: rotate(0);
+  transition: transform .15s ease;
+  font-size: .8rem;
+}
+.menu .menu-list details[open] > summary::before { transform: rotate(90deg); }
+
+.menu a:focus { outline: 2px solid rgba(13,90,229,.35); outline-offset: 2px; border-radius: 4px; }
+
+
+/* Glossario */
+dl > div + div { margin-top: .5rem; }
+
+/* Breadcrumbs: spazio e wrapping migliore se il percorso è lungo */
+.breadcrumb { margin-bottom: 1rem; }
+.breadcrumb ul { flex-wrap: wrap; }
+
+
+/* Selettore lingua */
+.lang-switch {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.lang-button {
+  padding: 0.2rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #f8f8f8;
+  text-decoration: none;
+  font-size: 0.85rem;
+  color: #333;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lang-button:hover {
+  background: #ddd;
+}
+
+.lang-button.active {
+  background: #0070f3;
+  color: white;
+  border-color: #0070f3;
+}
+
+/* ===== Sidebar “compact” ===== */
+
+.sidebar-nav {
+  position: sticky;
+  top: 1.25rem;                       /* stacca da header */
+  max-height: calc(100vh - 2.5rem);   /* evita overflow */
+  overflow: auto;
+  padding: .5rem .5rem 1rem;
+  background: #fff;                   /* mantiene contrasto con il content */
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: .75rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,.02);
+
+  /* scrollbar sobria solo quando serve */
+  &::-webkit-scrollbar { width: 8px; }
+  &::-webkit-scrollbar-thumb { background: rgba(0,0,0,.08); border-radius: 8px; }
+  &::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,.14); }
+}
+
+.sidebar-nav .menu-section + .menu-section {
+  margin-top: .75rem;
+  padding-top: .75rem;
+  border-top: 1px dashed rgba(0,0,0,.08);  /* separatore molto leggero */
+}
+
+.sidebar-nav .menu-label {
+  font-size: .70rem;
+  letter-spacing: .06em;
+  font-weight: 700;
+  color: #7a7a7a;
+  margin: .25rem .25rem .35rem;
+}
+
+.sidebar-nav .menu-list {
+  margin: 0;
+  padding-left: .25rem;
+}
+
+.sidebar-nav .menu-list li {
+  margin: 0;                          /* compatta verticalmente */
+}
+
+.sidebar-nav .menu-link {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .35rem .5rem .35rem .35rem;
+  border-radius: .5rem;
+  text-decoration: none;
+  line-height: 1.2;
+  color: #363636;                      /* Bulma text */
+  transition: background .15s ease, color .15s ease, padding-left .15s ease;
+}
+
+.sidebar-nav .menu-link .bullet {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(0,0,0,.18);
+  flex: 0 0 6px;
+  transform: translateY(1px);
+}
+
+.sidebar-nav .menu-link:hover {
+  background: rgba(0,0,0,.04);
+  color: #1d1d1d;
+  padding-left: .5rem;
+}
+
+.sidebar-nav .menu-list li.is-active > .menu-link {
+  background: rgba(0,0,0,.06);
+  color: #111;
+  font-weight: 600;
+}
+
+.sidebar-nav .menu-list li.is-active > .menu-link .bullet {
+  background: currentColor;
+}
+
+/* Spaziatura globale layout: sidebar più stretta, contenuto più ampio */
+.docsLayout {
+  .sidebar { max-width: 280px; }
+  .content { padding-left: 0; }
+}
+
+/* Mobile: la sidebar scende sotto il contenuto e perde lo sticky */
+@media (max-width: 1023px) {
+  .sidebar-nav {
+    position: static;
+    max-height: none;
+    margin-bottom: 1rem;
+  }
+  .docsLayout .sidebar { max-width: 100%; }
+}
+
+/* ==== Galleria prodotti compatta ==== */
+.product-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.pg-card {
+  display: grid;
+  grid-template-rows: auto min-content;
+  gap: 6px;
+  padding: 8px;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 10px;
+  background: #fff;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.02);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+
+.pg-card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0,0,0,.12);
+  box-shadow: 0 4px 10px rgba(0,0,0,.06);
+}
+
+.pg-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;              /* tile compatto e coerente */
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f6f6f6;
+  display: grid;
+  place-items: center;
+}
+
+.pg-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;               /* riempie senza deformare troppo */
+}
+
+.pg-placeholder {
+  color: #9a9a9a;
+  font-size: .9rem;
+  text-align: center;
+  padding: .5rem;
+}
+
+.pg-name {
+  font-size: .9rem;
+  line-height: 1.1;
+  font-weight: 600;
+  color: #222;
+  text-align: center;
+  margin-top: 2px;
+}
+
+/* versioni più dense su schermi larghi */
+@media (min-width: 1280px) {
+  .product-gallery { gap: 14px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+}
+
+
+
+

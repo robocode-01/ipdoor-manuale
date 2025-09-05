@@ -1,0 +1,78 @@
+{
+  "doorStations": [
+    {
+      "id": "spark-300",
+      "name": "SPARK 300",
+      "href": "/docs/hardware/door-stations/spark-300",
+      "image": "/media/spark-300/hero.png"
+    },
+    {
+      "id": "spark-310",
+      "name": "SPARK 310",
+      "href": "/docs/hardware/door-stations/spark-310",
+      "image": "/media/spark-310/hero.png"
+    },
+    {
+      "id": "vertex-1000",
+      "name": "VERTEX 1000",
+      "href": "/docs/hardware/door-stations/vertex-1000",
+      "image": "/media/vertex-1000/hero.png"
+    },
+    {
+      "id": "vertex-1110",
+      "name": "VERTEX 1110",
+      "href": "/docs/hardware/door-stations/vertex-1110",
+      "image": "/media/vertex-1110/hero.png"
+    },
+    {
+      "id": "vertex-1116",
+      "name": "VERTEX 1116",
+      "href": "/docs/hardware/door-stations/vertex-1116",
+      "image": "/media/vertex-1116/hero.png"
+    },
+    {
+      "id": "vertex-2000",
+      "name": "VERTEX 2000",
+      "href": "/docs/hardware/door-stations/vertex-2000",
+      "image": "/media/vertex-2000/hero.png"
+    },
+    {
+      "id": "vertex-2110",
+      "name": "VERTEX 2110",
+      "href": "/docs/hardware/door-stations/vertex-2110",
+      "image": "/media/vertex-2110/hero.png"
+    },
+    {
+      "id": "vertex-2116",
+      "name": "VERTEX 2116",
+      "href": "/docs/hardware/door-stations/vertex-2116",
+      "image": "/media/vertex-2116/hero.png"
+    }
+  ],
+  "indoorStations": [
+    {
+      "id": "pleats",
+      "name": "PLEATS",
+      "href": "/docs/hardware/indoor-stations/pleats",
+      "image": "/media/pleats/hero.png"
+    },
+    {
+      "id": "match",
+      "name": "MATCH",
+      "href": "/docs/hardware/indoor-stations/match",
+      "image": "/media/match/hero.png"
+    },
+    {
+      "id": "aura",
+      "name": "AURA",
+      "href": "/docs/hardware/indoor-stations/aura",
+      "image": "/media/aura/hero.png"
+    },
+    {
+      "id": "next",
+      "name": "NEXT",
+      "href": "/docs/hardware/indoor-stations/next",
+      "image": "/media/next/hero.png"
+    }
+  ]
+}

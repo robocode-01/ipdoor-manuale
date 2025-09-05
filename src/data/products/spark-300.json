@@ -1,0 +1,64 @@
+{
+  "id": "spark-300",
+  "title": "SPARK 300",
+  "subtitle": "Targa esterna videocitofonica IP con display touch 4\"",
+  "image": {
+    "src": "/media/spark-300/hero.png",
+    "alt": "SPARK 300 - vista frontale"
+  },
+  "stats": [
+    { "label": "Alimentazione", "value": "PoE 802.3af oppure 12/24 V DC @ 1A" },
+    { "label": "Consumo", "value": "2,5 W (Standby) · 5 W (Max)" },
+    { "label": "Uscita serratura", "value": "12 V DC @ 1 A impulsiva" },
+    { "label": "Ingressi", "value": "2 ingressi optoisolati Pull-up" },
+    { "label": "Grado di protezione", "value": "IP65 / IK07" },
+    { "label": "Dimensioni", "value": "187 × 113 × 30 mm" }
+  ],
+  "features": [
+    {
+      "title": "Display touch 4\"",
+      "desc": "Schermo capacitivo a prova di pioggia, risoluzione 1280×720 con luminosità di 1100 cd/m²."
+    },
+    {
+      "title": "Videocamera avanzata",
+      "desc": "Risoluzione 2576×1456, angolo di visione 170° (H) / 90° (V) con 4 LED IR per visione notturna."
+    },
+    {
+      "title": "Audio di alta qualità",
+      "desc": "2 microfoni digitali, altoparlante 2 W, DSP con AEC, ANS e AGC per un audio sempre chiaro."
+    },
+    {
+      "title": "Connessioni complete",
+      "desc": "LAN RJ45, Wi-Fi dual band, Bluetooth 4.2/BLE, NFC 13,56 MHz e connettività LTE opzionale."
+    },
+    {
+      "title": "Flessibilità di accesso",
+      "desc": "Supporto per PIN, badge MIFARE, NFC, QR Code, Bluetooth, riconoscimento facciale e comandi vocali."
+    },
+    {
+      "title": "Sicurezza integrata",
+      "desc": "Sensori di movimento radar, vandalismo e manomissione con invio allarmi da remoto."
+    }
+  ],
+  "officialDocs": [
+    {
+      "label": "Quick Start SPARK 300",
+      "href": "https://www.ipdoor.com/risorse/quick-start/QS-IE-300.pdf",
+      "note": "Guida rapida installazione e cablaggio"
+    },
+    {
+      "label": "Scheda tecnica completa (PDF)",
+      "href": "https://www.ipdoor.com/risorse/data-sheet/access/DS-IT-300.pdf",
+      "note": "Caratteristiche tecniche dettagliate"
+    },
+    {
+      "label": "Pagina ufficiale prodotto",
+      "href": "https://www.ipdoor.com/en/catalogue/access-en/door-stations/door-station-spark-300/"
+    }
+  ],
+"cta": {
+  "installHref": "/docs/hardware/door-stations/spark-300/installazione",
+  "specsHref": "/docs/hardware/door-stations/spark-300/scheda-tecnica"
+}
+
+}

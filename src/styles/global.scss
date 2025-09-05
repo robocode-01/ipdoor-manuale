@@ -1,0 +1,8 @@
+// Global SCSS
+@use "./brand/_variables.scss" as brand;
+$family-primary: brand.$font-family-base !default;
+$primary: brand.$color-primary !default;
+$link: brand.$color-accent !default;
+@use "bulma/bulma";
+html, body { min-height: 100%; }
+body { font-family: brand.$font-family-base; color: brand.$ink; background: brand.$background; }

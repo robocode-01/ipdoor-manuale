@@ -1,6 +1,12 @@
-import "@/styles/globals.css";
+// src/pages/_app.tsx
 import type { AppProps } from "next/app";
+import { appWithTranslation } from "next-i18next";
 
-export default function App({ Component, pageProps }: AppProps) {
+import "@/styles/global.scss";
+import "@/styles/docs.scss";
+
+function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
 }
+
+export default appWithTranslation(MyApp);

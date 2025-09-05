@@ -1,0 +1,28 @@
+{
+  "search_placeholder": "Cerca prodotto…",
+  "search_aria": "Cerca prodotto",
+  "no_results": "Nessun risultato",
+
+  "overview": "Panoramica",
+  "hardware": "Hardware",
+
+  "sec_start_here": "Inizia qui",
+  "sec_hardware": "Hardware",
+  "sec_software": "Software",
+  "sec_install_config": "Installazione e configurazione",
+  "sec_licenses": "Licenze",
+
+  "cat_door_stations": "Dispositivi esterni",
+  "cat_indoor_stations": "Dispositivi interni",
+  "cat_controller_reader": "Controller & Reader",
+
+  "app_mobile": "App Mobile",
+  "app_pc_base": "App PC Base",
+  "app_pc_concierge": "App PC Concierge",
+
+  "console": "Console",
+  "server_on_prem": "Server On Premise",
+
+  "remote_call_license": "Remote call license"
+}
+

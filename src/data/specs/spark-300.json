@@ -1,0 +1,93 @@
+{
+  "groups": [
+    {
+      "title": "Generali",
+      "rows": [
+        { "label": "Modello", "value": "SPARK 300 (IE-300)" },
+        { "label": "Categoria", "value": "Dispositivo esterno videocitofonico IP" },
+        { "label": "Montaggio", "value": "Superficie con piastra e coperchio di sicurezza" },
+        { "label": "Peso", "value": "850 g" },
+        { "label": "Materiale", "value": "Metallo verniciato" },
+        { "label": "Colori", "value": "Grigio Ombra, Argento" }
+      ]
+    },
+    {
+      "title": "Alimentazione",
+      "rows": [
+        { "label": "PoE", "value": "802.3af" },
+        { "label": "Alimentazione esterna", "value": "12/24 V DC @ 1 A" },
+        { "label": "Consumo", "value": "2,5 W (Standby) / 5 W (Max)" }
+      ]
+    },
+    {
+      "title": "Display",
+      "rows": [
+        { "label": "Dimensione", "value": "4\" capacitivo a prova di pioggia" },
+        { "label": "Risoluzione", "value": "1280 × 720" },
+        { "label": "Luminosità", "value": "1100 cd/m²" },
+        { "label": "Tipologia", "value": "IPS" }
+      ]
+    },
+    {
+      "title": "Videocamera",
+      "rows": [
+        { "label": "Risoluzione", "value": "2576 × 1456" },
+        { "label": "Angolo di visione", "value": "H=170° · V=90°" },
+        { "label": "Sensore", "value": "1/3” CMOS" },
+        { "label": "Sensibilità", "value": "Colore 0,02 Lux - B/N 0 Lux con IR attivi" },
+        { "label": "Illuminazione IR", "value": "4 LED IR copertura 5 m" }
+      ]
+    },
+    {
+      "title": "Audio",
+      "rows": [
+        { "label": "Altoparlante", "value": "1 × 2 W" },
+        { "label": "Microfoni", "value": "2 digitali" },
+        { "label": "DSP", "value": "AEC, ANS, AGC" }
+      ]
+    },
+    {
+      "title": "Rete e connettività",
+      "rows": [
+        { "label": "Ethernet", "value": "RJ45 10/100 Mbps" },
+        { "label": "Wi-Fi", "value": "Dual band 2.4/5 GHz IEEE 802.11 b/g/n/ac" },
+        { "label": "Bluetooth", "value": "4.2 / BLE" },
+        { "label": "NFC", "value": "13.56 MHz, MIFARE Classic, Ultralight, Plus, DESFire" },
+        { "label": "RS485", "value": "Master/Slave, ASCII/Modbus RTU" },
+        { "label": "LTE", "value": "Opzionale" }
+      ]
+    },
+    {
+      "title": "Ingressi e uscite",
+      "rows": [
+        { "label": "Uscita serratura", "value": "12 V DC @ 1 A impulsiva" },
+        { "label": "Relè ausiliario", "value": "Contatto pulito NA, 24 V DC @ 2 A max, monostabile 1–30 sec" },
+        { "label": "Ingressi", "value": "2 ingressi optoisolati Pull-up" }
+      ]
+    },
+    {
+      "title": "Sensori integrati",
+      "rows": [
+        { "label": "Movimento", "value": "Radar, distanza e direzione fino a 5 m" },
+        { "label": "Vandalismo", "value": "Sensore anti urto e vibrazione" },
+        { "label": "Manomissione", "value": "Sensore apertura forzata" }
+      ]
+    },
+    {
+      "title": "Certificazioni",
+      "rows": [
+        { "label": "Protezione", "value": "IP65 / IK07" }
+      ]
+    }
+  ],
+  "downloads": [
+    {
+      "label": "Quick Start SPARK 300",
+      "href": "https://www.ipdoor.com/risorse/quick-start/QS-IE-300.pdf"
+    },
+    {
+      "label": "Scheda tecnica completa (PDF)",
+      "href": "https://www.ipdoor.com/risorse/data-sheet/access/DS-IT-300.pdf"
+    }
+  ]
+}

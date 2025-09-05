@@ -1,0 +1,92 @@
+{
+  "title": "Installazione SPARK 300",
+  "model": "SPARK 300",
+  "sku": "IE-300",
+  "category": "door-stations",
+  "prerequisites": [
+    "Dima di foratura SPARK 300",
+    "Tasselli e viti in dotazione",
+    "Alimentatore stabilizzato 24V@0.65A o 12V@1.3A (se non si usa PoE)",
+    "Rete con uscita su porta 443 e DNS corretti",
+    "Cavo LAN Cat5e o superiore"
+  ],
+  "tools": [
+    "Trapano con punta adeguata ai tasselli",
+    "Cacciavite a croce",
+    "Tester cavo / verificatore continuità",
+    "PC con browser per setup"
+  ],
+  "safety": [
+    "Verificare l’assenza di tubazioni o cavi nei punti di foratura.",
+    "Disconnettere l’alimentazione durante il cablaggio.",
+    "Seguire le norme locali per impianti a bassissima tensione."
+  ],
+  "mounting": {
+    "type": "surface",
+    "steps": [
+      "Posizionare la dima a parete: verificare che il foro cavo sia nella zona evidenziata e l’altezza 155–165 cm da terra.",
+      "Segnare i 4 fori (indicati in rosso), forare e inserire i tasselli.",
+      "Fissare la piastra di aggancio con le 4 viti in dotazione.",
+      "Se necessario, agganciare il supporto di cablaggio alla targa e serrare la vite frontale.",
+      "Eseguire tutti i collegamenti alla morsettiera.",
+      "Agganciare la targa alla piastra e serrare le 2 viti frontali.",
+      "Inserire il coperchio dal basso verso l’alto fino allo scatto.",
+      "Per disinstallare: inserire la chiave di sicurezza, spingere il coperchio verso il basso e svitare le viti frontali."
+    ]
+  },
+  "wiring": {
+    "power": "Alimentazione 24V@0.65A o 12V@1.3A sui morsetti V-IN 12/24V (+) e V-IN GND (–).",
+    "lan": "RJ-45 verso rete locale (Cat5e o superiore).",
+    "relays": [
+      {
+        "name": "LOCK+ / LOCK−",
+        "usage": "Uscita 12V@1A per serratura elettrica (collegare +12V e GND).",
+        "notes": "Cavo max 30 m, sezione minima 1.5 mm²."
+      },
+      {
+        "name": "AUX N.O.",
+        "usage": "Uscita relè normalmente aperta per comando ausiliario.",
+        "notes": "Carico max 1A @ 24V."
+      }
+    ],
+    "notes": [
+      "Ingressi IN1 / IN2 riferiti a GND: per pulsante apriporta esterno collegare tra IN1 (o IN2) e GND e associare l’ingresso a un’uscita nelle impostazioni.",
+      "In alternativa al collegamento diretto della serratura, è possibile usare un relè di potenza esterno."
+    ]
+  },
+  "network": {
+    "default": [
+      "Ottenimento IP via DHCP all’avvio (verificare con la Console/strumenti di rete).",
+      "Accedere alla Console Admin in cloud per associare il dispositivo all’impianto."
+    ],
+    "static_ip": [
+      "Impostare IP statico dalla Console Admin, se richiesto dalle policy della rete."
+    ]
+  },
+  "commissioning": [
+    "Alimentare la targa e attendere il boot.",
+    "Verificare connettività LAN (ping / scoperta in Console).",
+    "Eseguire una chiamata di test in LAN.",
+    "Abilitare eventuale licenza per chiamata remota (se necessaria)."
+  ],
+  "troubleshooting": [
+    {
+      "symptom": "Nessuna alimentazione",
+      "fix": "Verificare alimentatore e polarità su V-IN 12/24V e V-IN GND."
+    },
+    {
+      "symptom": "La serratura non si aziona",
+      "fix": "Controllare collegamento LOCK+/LOCK− o cablaggio del relè; rispettare 12V@1A e polarità."
+    },
+    {
+      "symptom": "Il pulsante esterno non funziona",
+      "fix": "Assicurarsi che IN1/IN2 siano referenziati a GND e che l’ingresso sia associato a un’uscita in configurazione."
+    }
+  ],
+  "resources": [
+    {
+      "label": "Quick Start SPARK 300 (PDF)",
+      "href": "https://www.ipdoor.com/risorse/quick-start/QS-IE-300.pdf"
+    }
+  ]
+}

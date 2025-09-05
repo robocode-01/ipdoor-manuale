@@ -1,0 +1,42 @@
+[
+  {
+    "term": "Door station (targa esterna)",
+    "def": "Dispositivo esterno con videocamera, microfono, altoparlante e lettore credenziali. Effettua chiamate audio/video e comanda i varchi."
+  },
+  {
+    "term": "Indoor station (monitor interno)",
+    "def": "Schermo interno (es. NEXT, PLEATS) per ricevere chiamate, visualizzare il video e inviare comandi di apertura."
+  },
+  {
+    "term": "Reader / Controller",
+    "def": "Lettori di credenziali (NFC, BLE, QR, PIN) e moduli di controllo I/O che abilitano o estendono le funzioni di accesso."
+  },
+  {
+    "term": "Credenziali",
+    "def": "Badge NFC, telefono BLE, codice PIN e QR temporanei. Possono avere scadenze e fasce orarie."
+  },
+  {
+    "term": "Utenti e Gruppi",
+    "def": "Le persone che usano il sistema. I gruppi applicano permessi e orari a più utenti contemporaneamente."
+  },
+  {
+    "term": "Impianto",
+    "def": "Insieme di dispositivi, utenti, regole e varchi che appartengono allo stesso sito o condominio."
+  },
+  {
+    "term": "Console Admin (Cloud)",
+    "def": "Interfaccia di gestione remota per configurare dispositivi, utenti, gruppi, credenziali e regole dall’infrastruttura IpDoor."
+  },
+  {
+    "term": "Chiamata locale (LAN)",
+    "def": "La door station chiama i monitor/app nella stessa rete locale."
+  },
+  {
+    "term": "Chiamata remota (Cloud)",
+    "def": "La door station instrada la chiamata via Internet verso dispositivi remoti. Richiede licenza (es. Remote Call)."
+  },
+  {
+    "term": "PoE 802.3af",
+    "def": "Alimentazione via Ethernet consigliata per le door station IpDoor."
+  }
+]
