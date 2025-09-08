@@ -4,17 +4,33 @@ import DocsLayout from "@/components/docs/DocsLayout";
 import ProductGallery from "@/components/docs/ProductGallery";
 import data from "@/data/hardware.json";
 
+type RawItem = { id: string; name: string; image?: string; href?: string };
+type GalleryItem = { name: string; href: string; image?: string };
+
 export default function DoorStationsIndex() {
-  // atteso in data.doorStations: [{ name, href, image }, ...]
+  const list: RawItem[] = Array.isArray((data as any)?.doorStations)
+    ? ((data as any).doorStations as RawItem[])
+    : [];
+
+  const items: GalleryItem[] = list.map((p) => ({
+    name: p.name,
+    image: p.image,
+    href: p.href ? p.href : ("/docs/hardware/door-stations/" + p.id),
+  }));
+
   return (
     <DocsLayout title="Dispositivi esterni">
-      <ProductGallery items={data.doorStations} />
+      {items.length > 0 ? (
+        <ProductGallery items={items} />
+      ) : (
+        <div className="box has-text-grey" style={{ textAlign: "center" }}>
+          <p style={{ margin: 0 }}>Nessun elemento disponibile.</p>
+        </div>
+      )}
     </DocsLayout>
   );
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale ?? "it", ["common"])),
-  },
+  props: { ...(await serverSideTranslations(locale ?? "it", ["common"])) },
 });

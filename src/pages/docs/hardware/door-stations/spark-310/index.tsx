@@ -7,7 +7,7 @@ import data from "@/data/hardware.json";
 type Item = { id: string; name: string; image?: string };
 const SLUG = "spark-310";
 
-export default function Spark310Page() {
+export default function Page() {
   const list: Item[] = Array.isArray((data as any)?.doorStations)
     ? ((data as any).doorStations as Item[])
     : [];
@@ -20,7 +20,12 @@ export default function Spark310Page() {
       {item?.image && (
         <div style={{ maxWidth: 520, marginBottom: "1rem" }}>
           <div style={{ position: "relative", width: "100%", aspectRatio: "4 / 3" }}>
-            <Image src={item.image} alt={item.name} fill sizes="(max-width: 768px) 80vw, 520px" />
+            <Image
+              src={item.image}
+              alt={item.name}
+              fill
+              sizes="(max-width: 768px) 80vw, 520px"
+            />
           </div>
         </div>
       )}
